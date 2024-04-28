@@ -1,13 +1,16 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generateSVG = require('./lib/shapes')
+const generateSVG = require('./lib/shapes');
+const maxLengthInputPrompt = require('inquirer-maxlength-input-prompt');
+inquirer.registerPrompt('maxlength-input', maxLengthInputPrompt);
 
 function input() {
   inquirer.prompt([
     {
-      type: 'input',
+      type: 'maxlength-input',
       message: 'Please input up to three letters for your logo',
       name: 'letters',
+      maxLength: 3,
     },
     {
       type: 'input',
@@ -17,7 +20,7 @@ function input() {
     {
       type: 'list',
       message: 'Please select a shape for your logo',
-      name: 'shapes',
+      name: 'shape',
       choices: ['circle', 'triangle', 'square']
     },
     {
@@ -27,7 +30,7 @@ function input() {
     },
   ]).then((data) => {
 
-    fs.writeFile('logo.svg', generateSVG(data), (err) => err
+    fs.writeFile('logo.svg', generateSVG.generateSVG(data), (err) => err
       ? console.error('An error has occurred')
       : console.log('Generated logo.svg')
     );
