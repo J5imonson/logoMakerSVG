@@ -4,4 +4,5 @@
 
 https://github.com/J5imonson/logoMakerSVG
 
-video tbm
+video
+https://drive.google.com/file/d/1hyl84_QSKfBLmcMmYD_70_muutHjI67Q/view?usp=drive_link
