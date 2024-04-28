@@ -30,7 +30,7 @@ function input() {
     },
   ]).then((data) => {
 
-    fs.writeFile('logo.svg', generateSVG.generateSVG(data), (err) => err
+    fs.writeFile('./examples/logo.svg', generateSVG.generateSVG(data), (err) => err
       ? console.error('An error has occurred')
       : console.log('Generated logo.svg')
     );
